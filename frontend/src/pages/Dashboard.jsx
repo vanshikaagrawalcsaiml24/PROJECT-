@@ -15,15 +15,6 @@ function Dashboard() {
   const [result, setResult] = useState(null);
   const [activePage, setActivePage] = useState("dashboard");
 
-  {activePage === "dashboard" && (
-  <>
-    <PromptCanvas setResult={setResult} />
-    <BlueprintCard result={result} />
-    <ProjectScoreCard result={result} />
-    <ProjectHealthCard />
-  </>
-)}
-
   return (
     <div className="dashboard">
       <Sidebar activePage={activePage} setActivePage={setActivePage} />
@@ -32,9 +23,7 @@ function Dashboard() {
         <Topbar result={result} />
 
         <div className="welcome-section">
-          <h1 className="hero-title">
-            Project Architecture <span>Studio</span>
-          </h1>
+          <h1 className="hero-title">Project Architecture Studio</h1>
           <p>
             Generate complete AI-powered project blueprints, architecture,
             roadmap, and technology recommendations.
@@ -71,19 +60,23 @@ function Dashboard() {
             <ArchitectureCard result={result} />
           )}
 
-          {activePage === "roadmap" && (
-            <RoadmapCard result={result} />
-          )}
+          {activePage === "roadmap" && <RoadmapCard result={result} />}
 
-          {activePage === "team" && (
-            <TeamPlannerCard result={result} />
-          )}
+          {activePage === "team" && <TeamPlannerCard result={result} />}
+
+          {activePage === "score" && <ProjectScoreCard result={result} />}
+
+          {activePage === "health" && <ProjectHealthCard />}
 
           {activePage === "risk" && (
             <>
               <RiskAnalysisCard result={result} />
               <AISuggestionsCard result={result} />
             </>
+          )}
+
+          {activePage === "suggestions" && (
+            <AISuggestionsCard result={result} />
           )}
         </div>
       </main>
