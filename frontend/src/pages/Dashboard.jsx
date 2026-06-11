@@ -6,7 +6,7 @@ import BlueprintCard from "../components/BlueprintCard";
 import ArchitectureCard from "../components/ArchitectureCard";
 import RoadmapCard from "../components/RoadmapCard";
 import TeamPlannerCard from "../components/TeamPlannerCard";
-import ProjectScoreCard from "../components/ProjectScoreCard";
+import ProjectScoreCard from "../components/ProjectScorecard";
 import RiskAnalysisCard from "../components/RiskAnalysisCard";
 import AISuggestionsCard from "../components/AISuggestionsCard";
 import ProjectHealthCard from "../components/ProjectHealthCard";
