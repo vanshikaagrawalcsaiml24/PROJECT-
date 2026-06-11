@@ -1,37 +1,37 @@
-function TeamPlannerCard() {
+function TeamPlannerCard({ result }) {
+  const roles = result?.team_roles || [
+    "Frontend Developer",
+    "Backend Developer",
+    "AI Engineer",
+    "Tester",
+    "Project Manager",
+    "Documentation Lead",
+  ];
+
   return (
     <div className="card">
-      <h2>👥 Team Planner</h2>
+      <h2>Team Planner</h2>
 
       <div className="team-grid">
-        <div className="team-role">
-          <h3>Frontend Developer (2)</h3>
-          <p>React UI, dashboard, API integration</p>
-        </div>
-
-        <div className="team-role">
-          <h3>Backend Developer</h3>
-          <p>FastAPI, routes, Gemini connection</p>
-        </div>
-
-        <div className="team-role">
-          <h3>AI Engineer</h3>
-          <p>Prompt design and AI response formatting</p>
-        </div>
-
-        <div className="team-role">
-          <h3>Tester</h3>
-          <p>Bug testing and validation</p>
-        </div>
-        <div className="team-role">
-  <h3>Project Manager</h3>
-  <p>Task planning and team coordination</p>
-</div>
-
-<div className="team-role">
-  <h3>Documentation Lead</h3>
-  <p>Reports, PPT and project documentation</p>
-</div>
+        {roles.map((role, index) => (
+          <div className="team-role" key={index}>
+            <h3>{role}</h3>
+            <p>
+              {role === "Frontend Developer" && "React UI, dashboard, API integration"}
+              {role === "Backend Developer" && "FastAPI, routes, database and API logic"}
+              {role === "AI/ML Engineer" && "Prompt design, AI response formatting and model testing"}
+              {role === "Database Engineer" && "Database schema, storage and data handling"}
+              {role === "UI/UX Designer" && "User interface design and user experience flow"}
+              {![
+                "Frontend Developer",
+                "Backend Developer",
+                "AI/ML Engineer",
+                "Database Engineer",
+                "UI/UX Designer",
+              ].includes(role) && "Project task contribution and implementation"}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );

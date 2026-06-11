@@ -33,8 +33,8 @@ function PromptCanvas({ setResult }) {
 
       setResult(data);
     } catch (error) {
-      alert("Backend connect nahi ho raha");
-      console.error(error);
+      console.error("Backend error:", error);
+      alert("Backend connect nahi ho raha. Check karo backend server running hai ya nahi.");
     } finally {
       setLoading(false);
     }
@@ -61,19 +61,27 @@ function PromptCanvas({ setResult }) {
       />
 
       <div className="prompt-actions">
-        <button className="secondary-btn">
+        <button className="secondary-btn" type="button">
           <Paperclip size={16} />
           Attach File
         </button>
 
-        <button className="secondary-btn">
+        <button className="secondary-btn" type="button">
           <Wand2 size={16} />
           Enhance Prompt
         </button>
 
-        <button className="primary-btn" onClick={handleGenerate} disabled={loading}>
-          {loading ? "Generating..." : "Generate Blueprint"}
-        </button>
+       <button
+  className="primary-btn"
+  type="button"
+  onClick={() => {
+    console.log("Generate clicked");
+    handleGenerate();
+  }}
+  disabled={loading}
+>
+  {loading ? "Generating..." : "Generate Blueprint"}
+</button>
       </div>
     </div>
   );

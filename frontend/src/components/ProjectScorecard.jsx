@@ -1,4 +1,11 @@
 function ProjectScoreCard({ result }) {
+  const score = result?.project_score || {
+    innovation: 8,
+    complexity: 7,
+    scalability: 9,
+    overall: 8,
+  };
+
   return (
     <div className="card">
       <h2>Project Evaluation</h2>
@@ -6,22 +13,22 @@ function ProjectScoreCard({ result }) {
       <div className="team-grid">
         <div className="team-member">
           <h3>Innovation</h3>
-          <p>8/10</p>
+          <p>{score.innovation}/10</p>
         </div>
 
         <div className="team-member">
           <h3>Complexity</h3>
-          <p>7/10</p>
+          <p>{score.complexity}/10</p>
         </div>
 
         <div className="team-member">
           <h3>Scalability</h3>
-          <p>9/10</p>
+          <p>{score.scalability}/10</p>
         </div>
 
         <div className="team-member">
           <h3>Overall Score</h3>
-          <p>8.0/10</p>
+          <p>{score.overall}/10</p>
         </div>
       </div>
     </div>
