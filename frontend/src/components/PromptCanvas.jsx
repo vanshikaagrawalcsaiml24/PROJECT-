@@ -14,7 +14,7 @@ function PromptCanvas({ setResult }) {
     try {
       setLoading(true);
 
-      const response = await fetch("http://127.0.0.1:8000/generate-blueprint", {
+     const response = await fetch("https://project-3e9l.onrender.com/generate-blueprint", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
